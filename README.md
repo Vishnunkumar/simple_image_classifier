@@ -1,5 +1,5 @@
 # simple-image-classification
-Simple Image classification using keras and tensorflow
+Simple Image classification using transfer learning 
 
 ```
 # loading the package
