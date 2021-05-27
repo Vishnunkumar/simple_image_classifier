@@ -1,14 +1,14 @@
 from distutils.core import setup
 setup(
-  name = 'simple-image-classifier',         # How you named your package folder (MyLib)
-  packages = ['simple-image-classifier'],   # Chose the same as "name"
+  name = 'simple_image_classifier',         # How you named your package folder (MyLib)
+  packages = ['simple_image_classifier'],   # Chose the same as "name"
   version = '0.1',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'A simple image classification library using keras, tensorflow and tensorflow hub',   # Give a short description about your library
   author = 'Vishnu N',                   # Type in your name
   author_email = 'vishnunkumar25@gmail.com',      # Type in your E-Mail
-  url = 'https://github.com/Vishnunkumar/simple-image-classifier',   # Provide either the link to your github or to your website
-  download_url ='https://github.com/Vishnunkumar/simple-image-classifier/archive/refs/tags/v_01.tar.gz',    # I explain this later on
+  url = 'https://github.com/Vishnunkumar/simple_image_classifier',   # Provide either the link to your github or to your website
+  download_url ='https://github.com/Vishnunkumar/simple_image_classifier/archive/refs/tags/v_01.tar.gz',    # I explain this later on
   keywords = ['Image Classification', 'Keras', 'TensorFlow'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'pandas',
