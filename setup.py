@@ -13,7 +13,7 @@ setup(
   install_requires=[            # I get to this in a second
           'pandas',
           'numpy',
-          'opencv-python==4.1.2.30'
+          'opencv-python==4.1.2.30',
           'tensorflow==2.5.0',
           'tensorflow_hub',
           'sklearn',
