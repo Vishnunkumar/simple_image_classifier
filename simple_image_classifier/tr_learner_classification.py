@@ -142,4 +142,4 @@ class Predictions:
         tf_model_predictions = self.model.predict(test_img)
         id_ = np.argmax(tf_model_predictions[0])
         
-        return tf_model_predictionss
+        return tf_model_predictions
