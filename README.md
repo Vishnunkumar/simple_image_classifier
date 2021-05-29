@@ -19,10 +19,17 @@ train_generator, valid_generator = tr_learner_classification.Preprocessing.gener
 
 # model compilation
 image_class_model = tr_learner_classification.Model(train_generator, valid_generator, met, los, model_weights, 224, 224)
+
+# params for compiler: compiled model, activation function, penultimate dense layer nodes, dropout value
 tl_model = tr_learner_classification.Model.compiler(image_class_model, 'sigmoid', 1280, 0.5)
+ 
 
 # model training
 img_model, img_hist = tr_learner_classification.Model.train(image_class_model, 80, tl_model)
+
+# prediction
+predictor = tr_learner_classification.Predictions(img_path, img_model, 224, 224)
+predictions = predictor.predict()
 
 ```
 
