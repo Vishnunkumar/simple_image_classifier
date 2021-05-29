@@ -11,6 +11,18 @@ import shutil
 import random
 
 class Preprocessing:
+    
+    """
+    Module for preprocessing the image files
+    
+    Arguements:
+        x: width of the image
+        y: height of the image
+        batch_size: Size of the batch for training
+        train_path: folder with train images with sub folders for classes
+        valid_path: folder with validation images with sub folders for classes
+    """
+    
     def __init__(self, x, y, batch_size, train_path, valid_path):
         self.x = x
         self.y = y
@@ -50,6 +62,20 @@ class Preprocessing:
         return train_generator, valid_generator
     
 class Model:
+   
+    """
+    Module for creating and compiling the model
+    
+    Arguements:
+        train_generator: generator function for the training data
+        valid_generator: generator function for the validation data
+        met: metric
+        los: loss function
+        model_link: path for weights for more information look into tf_hub
+        x: width of the image
+        y: height of the image
+    """
+     
     def __init__(self, train_generator, valid_generator, met, los, model_link, x, y):
         self.train_generator = train_generator
         self.valid_generator = valid_generator
@@ -90,3 +116,30 @@ class Model:
                             validation_steps=val_steps_per_epoch).history
 
         return self.model, hist
+
+class Predictions:
+    
+    """
+    Module for generating predictions for single image
+    
+    Arguements:
+        x: width of the image
+        y: height of the image
+        batch_size: Size of the batch for training
+        train_path: folder with train images with sub folders for classes
+        valid_path: folder with validation images with sub folders for classes
+    """
+    
+    def __init__(self, image_path, model, x, y):
+        self.image_dir = image_path
+        self.model = model
+        self.x = x
+        self.y = y
+    
+    def predict(self):
+        test_img = cv2.imread(self.image_dir)
+        test_img = np.resize(test_img, (1, self.x, self.y, 3))
+        tf_model_predictions = self.model.predict(test_img)
+        id_ = np.argmax(tf_model_predictions[0])
+        
+        return tf_model_predictionss
